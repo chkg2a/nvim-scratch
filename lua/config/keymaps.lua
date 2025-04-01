@@ -1,6 +1,8 @@
 local map = vim.keymap.set
 
 -- General
+map("n", "zz", "ZZ", { desc = "save and quit" })
+map("n", "zq", "ZQ", { desc = "quit" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "j", "gj", { desc = "go down easy" })
 map("n", "k", "gk", { desc = "go up easy" })
@@ -26,6 +28,7 @@ map("n", "gh", "<cmd>lua MiniDiff.toggle_overlay()<cr>", { desc = "Next hunk" })
 map("n", "gH", "<cmd>DiffViewOpen<cr>", { desc = "Open Diff View" })
 map("n", "ga", "<cmd>Git add %<cr>", { desc = "Open Diff View" })
 map("n", "gc", "<cmd>Git commit<cr>", { desc = "Open Diff View" })
+map("n", "<leader>fg", "<cmd>Neogit<cr>", { desc = "Open Diff View" })
 
 -- File Ex
 map("n", "<leader>e", "<cmd>Oil<cr>", {})

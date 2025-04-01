@@ -1,42 +1,65 @@
 return {
 	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+
+			-- Only one of these is needed.
+			"nvim-telescope/telescope.nvim", -- optional
+			"ibhagwan/fzf-lua", -- optional
+			"echasnovski/mini.pick", -- optional
+		},
+		config = function()
+			require("options.neogit")
+		end,
+	},
+	{ "sindrets/diffview.nvim", cmd = "DiffviewOpen" },
+	{
+		"kylechui/nvim-surround",
+		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
+		"shellRaining/hlchunk.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("options.hlchunk")
+		end,
+	},
+	{
 		"stevearc/conform.nvim",
 		opts = {},
 		config = function()
-			require("conform").setup({
-				formatters_by_ft = {
-					lua = { "stylua" },
-					css = { "prettierd", "prettier", stop_after_first = true },
-					html = { "prettierd", "prettier", stop_after_first = true },
-					javascript = { "prettierd", "prettier", stop_after_first = true },
-					javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-					cpp = { "clang-format" },
-					python = { "autoflake" },
-				},
-			})
+			require("options.conform")
 		end,
 	},
 	{
 		"stevearc/oil.nvim",
-		opts = {},
+		opts = {
+			skip_confirm_for_simple_edits = true,
+		},
 		dependencies = {
 			{ "echasnovski/mini.icons", opts = {} },
 		},
 		lazy = false,
 	},
 	{
-		"folke/tokyonight.nvim",
-		priority = 1000,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		config = function()
-			vim.cmd.colorscheme("tokyonight-night")
+			require("options.catppuccin")
 		end,
+		priority = 1000,
 	},
 	{
 		"echasnovski/mini.nvim",
 		version = false,
 		config = function()
-			require("mini.statusline").setup()
-			require("mini.move").setup()
+			require("options.mini")
 		end,
 	},
 	{
@@ -62,8 +85,13 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+		},
 		config = function()
-			require "config.lspconfig"
+			require("options.lspconfig")
 		end,
 	},
 
@@ -75,17 +103,7 @@ return {
 			"nvim-telescope/telescope-file-browser.nvim",
 		},
 		config = function()
-			require("startup").setup({
-				theme = "startify",
-			})
-			vim.g.startup_bookmarks = {
-				["N"] = "~/.config/nvim/lua/plugins/init.lua",
-				["C"] = "~/projects/college-programs/datasOnServer/",
-				["W"] = "~/projects/websites/chill/",
-				["D"] = "~/.local/share/clone/dwm/config.h",
-				["A"] = "~/.local/bin/",
-				["f"] = ".",
-			}
+			require("options.startup")
 		end,
 		event = "BufWinEnter",
 	},
@@ -124,33 +142,9 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			ensure_installed = {
-				"bash",
-				"vim",
-				"lua",
-				"markdown",
-				"html",
-				"css",
-				"javascript",
-				"typescript",
-				"json",
-				"c_sharp",
-				"sql",
-				"yaml",
-				"xml",
-				"tsx",
-			},
-			config = function()
-				require("nvim-treesitter.configs").setup({
-					ensure_installed = { "markdown", "markdown_inline" },
-					highlight = {
-						enable = true,
-					},
-				})
-			end,
-		},
-		lazy = false,
+		config = function()
+			require("options.treesitter")
+		end,
 	},
 
 	{
@@ -177,39 +171,10 @@ return {
 		end,
 		lazy = false,
 	},
-
 	{
 		"CRAG666/code_runner.nvim",
 		config = function()
-			require("code_runner").setup({
-				filetype = {
-					c = {
-						"cd '$dir' &&",
-						"gcc $fileName -o out.$fileNameWithoutExt -Ofast -march=native &&",
-						"/usr/bin/time -o memUsage.txt -f%M ./out.$fileNameWithoutExt &&",
-						"echo '' &&",
-						"cat memUsage.txt | awk '{printf \"Memory Usage: %.1f MB\\n\", $1/1024}' &&",
-						"rm ./out.$fileNameWithoutExt &&",
-						"rm ./memUsage.txt",
-					},
-					java = {
-						"cd '$dir' &&",
-						"javac $fileName &&",
-						"java $fileNameWithoutExt &&",
-						"rm *.class &&",
-					},
-					cpp = {
-						"cd '$dir' &&",
-						"g++ $fileName -std=c++23 -o out.$fileNameWithoutExt -Ofast -march=native -lfn&&",
-						"/usr/bin/time -o memUsage.txt -f%M ./out.$fileNameWithoutExt &&",
-						"echo '' &&",
-						"cat memUsage.txt | awk '{printf \"Memory Usage: %.1f MB\\n\", $1/1024}' &&",
-						"rm ./out.$fileNameWithoutExt &&",
-						"rm ./memUsage.txt",
-					},
-					python = "python3 -u",
-				},
-			})
+			require("options.code_runner")
 		end,
 		cmd = "RunCode",
 	},
