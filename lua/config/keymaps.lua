@@ -13,6 +13,19 @@ map({ "n", "t" }, "<A-j>", "<C-w>j", { desc = "window up panel" })
 map({ "n", "t" }, "<A-k>", "<C-w>k", { desc = "window down panel" })
 map({ "n", "t" }, "<A-S-h>", "<cmd>2winc > <cr>", { desc = "increase window left panel" })
 map({ "n", "t" }, "<A-S-l>", "<cmd>2winc < <cr>", { desc = "increase window right panel" })
+map("n", "<Esc>", function()
+    if vim.v.hlsearch == 1 then
+        vim.cmd("noh")
+    else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+    end
+end, { silent = true, desc = "Smart clear search highlights" })
+
+-- Git Stuffs
+map("n", "gh", "<cmd>lua MiniDiff.toggle_overlay()<cr>", { desc = "Next hunk" })
+map("n", "gH", "<cmd>DiffViewOpen<cr>", { desc = "Open Diff View" })
+map("n", "ga", "<cmd>Git add %<cr>", { desc = "Open Diff View" })
+map("n", "gc", "<cmd>Git commit<cr>", { desc = "Open Diff View" })
 
 -- File Ex
 map("n", "<leader>e", "<cmd>Oil<cr>", {})
@@ -33,17 +46,11 @@ map("n", "zR", require("ufo").openAllFolds)
 map("n", "zM", require("ufo").closeAllFolds)
 
 -- spectre
-map("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>', {
-	desc = "Toggle Spectre",
-})
 map("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
 	desc = "Search current word",
 })
 map("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
 	desc = "Search current word",
-})
-map("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-	desc = "Search on current file",
 })
 
 -- conform
