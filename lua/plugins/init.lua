@@ -1,8 +1,33 @@
 return {
 	{
+		"ThePrimeagen/harpoon",
+    event = "VeryLazy",
+    config = function()
+      require("options.harpoon")
+    end,
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+  -- stylua: ignore
+  keys = {
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "<leader>s", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "<leader>S", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  },
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = { "markdown", "codecompanion" },
+	},
+	{
 		"olimorris/codecompanion.nvim",
 		config = function()
-      require("options.codecompanion")
+			require("options.codecompanion")
 		end,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
