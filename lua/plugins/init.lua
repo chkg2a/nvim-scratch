@@ -1,5 +1,43 @@
 return {
 	{
+		"olimorris/codecompanion.nvim",
+		config = function()
+      require("options.codecompanion")
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
+	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({})
+		end,
+	},
+	{
+		"vhyrro/luarocks.nvim",
+		priority = 1001, -- this plugin needs to run before anything else
+		opts = {
+			rocks = { "magick" },
+		},
+	},
+	{
+		"3rd/image.nvim",
+		dependencies = { "luarocks.nvim" },
+		opts = {},
+	},
+	{ "krady21/compiler-explorer.nvim", cmd = "CECompile" },
+	{ "cljoly/telescope-repo.nvim" },
+	{
+		"vyfor/cord.nvim",
+		build = ":Cord update",
+		config = function()
+			require("options.cord")
+		end,
+		event = "VeryLazy",
+	},
+	{
 		"NeogitOrg/neogit",
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- required
@@ -64,6 +102,10 @@ return {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("options.telescope")
+		end,
 		tag = "0.1.8",
 	},
 	{

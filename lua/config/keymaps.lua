@@ -6,6 +6,7 @@ map("n", "zq", "ZQ", { desc = "quit" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "j", "gj", { desc = "go down easy" })
 map("n", "k", "gk", { desc = "go up easy" })
+map("n", "<leader>h", "<cmd>split<cr>", { desc = "Horizontal Split" })
 map("n", "<leader>v", "<cmd>vsplit<cr>", { desc = "Virtical Split" })
 map({ "n", "t" }, "<C-l>", "<C-w>l", { desc = "window left panel" })
 map({ "n", "t" }, "<C-h>", "<C-w>h", { desc = "window right panel" })
@@ -25,9 +26,19 @@ end, { silent = true, desc = "Smart clear search highlights" })
 
 -- Git Stuffs
 map("n", "gh", "<cmd>lua MiniDiff.toggle_overlay()<cr>", { desc = "Next hunk" })
-map("n", "gH", "<cmd>DiffViewOpen<cr>", { desc = "Open Diff View" })
-map("n", "ga", "<cmd>Git add %<cr>", { desc = "Open Diff View" })
-map("n", "gc", "<cmd>Git commit<cr>", { desc = "Open Diff View" })
+
+local function toggle_diffview()
+  local view = require("diffview.lib").get_current_view()
+  if view then
+    vim.cmd("DiffviewClose")
+  else
+    vim.cmd("DiffviewOpen")
+  end
+end
+
+map("n", "gH", toggle_diffview, { desc = "Toggle Diff View" })
+map("n", "<leader>ga", "<cmd>Git add %<cr>", { desc = "Open Diff View" })
+map("n", "<leader>gc", "<cmd>Git commit<cr>", { desc = "Open Diff View" })
 map("n", "<leader>fg", "<cmd>Neogit<cr>", { desc = "Open Diff View" })
 
 -- File Ex
@@ -40,6 +51,7 @@ map("n", "<A-u>", "<cmd>UndotreeToggle<cr>", {})
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 map("n", "<leader>fw", builtin.live_grep, { desc = "Telescope live grep" })
+map("n", "<leader>fp", "<cmd>Telescope repo list<cr>", { desc = "Telescope live grep" })
 
 -- NeoCodeium
 map("n", "<leader>b", "<cmd> NeoCodeium toggle<CR>")
@@ -48,13 +60,32 @@ map("n", "<leader>b", "<cmd> NeoCodeium toggle<CR>")
 map("n", "zR", require("ufo").openAllFolds)
 map("n", "zM", require("ufo").closeAllFolds)
 
--- spectre
+-- RunCode
+map("n", "<leader>r", "<cmd>RunCode<cr>", { desc = "Run Code" })
+
+-- Search and Replace
+
+function ReplaceChar()
+  local char_to_replace = vim.fn.input "Replace: "
+  local new_char = vim.fn.input "With: "
+  if char_to_replace ~= "" and new_char ~= "" then
+    vim.cmd(string.format("s/%s/%s/g", char_to_replace, new_char))
+    vim.cmd "nohlsearch"
+  end
+end
+
+map("n", "<leader>ro", [[:lua ReplaceChar()<CR>]], { noremap = true, silent = false })
+
 map("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
 	desc = "Search current word",
 })
 map("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
 	desc = "Search current word",
 })
+
+-- AI
+map("n", "<leader>ai", "<cmd>CodeCompanionChat<cr>", { desc = "Code Comp" })
+map("v", "<leader>ai", "<cmd>CodeCompanionActions<cr>", { desc = "Code Comp" })
 
 -- conform
 map("n", "<leader>fm", function()
