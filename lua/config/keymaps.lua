@@ -87,6 +87,11 @@ map("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
 map("n", "<leader>ai", "<cmd>CodeCompanionChat<cr>", { desc = "Code Comp" })
 map("v", "<leader>ai", "<cmd>CodeCompanionActions<cr>", { desc = "Code Comp" })
 
+-- Harpoon
+map("n", "<A-m>", "<cmd>lua require(\"harpoon.ui\").toggle_quick_menu()<cr>", { desc = "open menu" })
+map("n", "<A-q>", "<cmd>lua require(\"harpoon.ui\").nav_next()<cr>", { desc = "go next" })
+map("n", "<A-r>", "<cmd>lua require(\"harpoon.mark\").add_file()<cr>", { desc = "add file" })
+
 -- conform
 map("n", "<leader>fm", function()
 	require("conform").format({ lsp_fallback = true })

@@ -25,5 +25,11 @@ require("code_runner").setup({
 			"rm ./memUsage.txt",
 		},
 		python = "python3 -u",
+    asm = {
+			"cd '$dir' &&",
+      "nasm -f elf64 $fileName &&",
+      "ld $fileNameWithoutExt.o -o $fileNameWithoutExt &&",
+      "./$fileNameWithoutExt"
+    }
 	},
 })

@@ -1,4 +1,9 @@
 require("codecompanion").setup({
+	display = {
+		chat = {
+			auto_scroll = false,
+		},
+	},
 	adapters = {
 		gemini = function()
 			return require("codecompanion.adapters").extend("gemini", {
@@ -11,6 +16,14 @@ require("codecompanion").setup({
 	strategies = {
 		chat = {
 			adapter = "gemini",
+			keymaps = {
+				send = {
+					modes = { n = ";", i = "<C-s>" },
+				},
+				close = {
+					modes = { n = "<C-c>", i = "<C-c>" },
+				},
+			},
 		},
 		inline = {
 			adapter = "gemini",
