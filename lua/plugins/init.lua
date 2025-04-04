@@ -52,12 +52,12 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
-	{
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("project_nvim").setup({})
-		end,
-	},
+	-- {
+	-- 	"ahmedkhalf/project.nvim",
+	-- 	config = function()
+	-- 		require("project_nvim").setup({})
+	-- 	end,
+	-- },
 	{
 		"vhyrro/luarocks.nvim",
 		priority = 1001, -- this plugin needs to run before anything else
@@ -231,17 +231,6 @@ return {
 			require("options.treesitter")
 		end,
 	},
-
-	-- {
-	-- 	"hrsh7th/nvim-cmp",
-	-- 	dependencies = {
-	-- 		"hrsh7th/cmp-nvim-lsp",
-	-- 		"L3MON4D3/LuaSnip",
-	-- 	},
-	-- 	config = function()
-	--      require("options.cmp")
-	-- 	end,
-	-- },
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()
@@ -254,6 +243,6 @@ return {
 		config = function()
 			require("options.code_runner")
 		end,
-		cmd = "RunCode",
+    cmd = { "RunCode" },
 	},
 }
