@@ -1,10 +1,28 @@
 return {
 	{
+		"saghen/blink.cmp",
+		dependencies = { "rafamadriz/friendly-snippets" },
+
+		version = "1.*",
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			keymap = {
+				preset = "default",
+			},
+			completion = { documentation = { auto_show = false } },
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
+		},
+		opts_extend = { "sources.default" },
+	},
+	{
 		"ThePrimeagen/harpoon",
-    event = "VeryLazy",
-    config = function()
-      require("options.harpoon")
-    end,
+		event = "VeryLazy",
+		config = function()
+			require("options.harpoon")
+		end,
 	},
 	{
 		"folke/flash.nvim",
@@ -214,23 +232,16 @@ return {
 		end,
 	},
 
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"L3MON4D3/LuaSnip",
-		},
-		config = function()
-			local cmp = require("cmp")
-			cmp.setup({
-				mapping = {
-					["<Tab>"] = cmp.mapping.select_next_item(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
-				},
-				sources = { { name = "nvim_lsp" } },
-			})
-		end,
-	},
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	dependencies = {
+	-- 		"hrsh7th/cmp-nvim-lsp",
+	-- 		"L3MON4D3/LuaSnip",
+	-- 	},
+	-- 	config = function()
+	--      require("options.cmp")
+	-- 	end,
+	-- },
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()

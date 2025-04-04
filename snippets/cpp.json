@@ -1,0 +1,17 @@
+{
+  "algo": {
+    "prefix": "algo",
+    "body": [
+      "#include <iostream>",
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "$1",
+      "",
+      "int main(){",
+      "\tSolution sol;",
+      "\treturn 0;",
+      "}"
+    ]
+  }
+}
