@@ -278,7 +278,7 @@ return {
 		end,
 	},
 	{
-		dir = "~/.config/nvim/lua/todo-obsidian",
+		"chkg2a/todo-obsidian.nvim",
 		lazy = false, -- load on startup
 		priority = 100, -- load early if needed
 		opts = {
@@ -286,7 +286,7 @@ return {
 				main_todo = vim.fn.expand("~/.local/share/obsidian_ChK/journaling/todos/TODO.md"),
 			},
 		},
-		config = function(_,opts)
+		config = function(_, opts)
 			require("todo-obsidian").setup(opts)
 		end,
 	},

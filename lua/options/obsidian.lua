@@ -16,6 +16,9 @@ require("obsidian").setup({
 		alias_format = "%B %-d, %Y",
 		template = nil,
 	},
+	ui = {
+		enable = false,
+	},
 	mappings = {
 		["gf"] = {
 			action = function()
