@@ -17,7 +17,7 @@ require("code_runner").setup({
 		},
 		cpp = {
 			"cd '$dir' &&",
-			"g++ $fileName -std=c++23 -o out.$fileNameWithoutExt -Ofast -march=native -lfn&&",
+			"g++ $fileName -o out.$fileNameWithoutExt -Ofast -march=native -lfn&&",
 			"/usr/bin/time -o memUsage.txt -f%M ./out.$fileNameWithoutExt &&",
 			"echo '' &&",
 			"cat memUsage.txt | awk '{printf \"Memory Usage: %.1f MB\\n\", $1/1024}' &&",

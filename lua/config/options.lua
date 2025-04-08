@@ -4,6 +4,7 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.o.inccommand = "split"
 vim.o.relativenumber = true
 vim.o.number = true
+vim.o.conceallevel = 1
 
 vim.opt.undofile = true  -- Enable persistent undo
 vim.opt.expandtab = true      -- Convert tabs to spaces

@@ -1,5 +1,18 @@
 return {
 	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup()
+		end,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		opts = {},
+		config = function()
+			require("options.nvim-tree")
+		end,
+	},
+	{
 		"saghen/blink.cmp",
 		dependencies = { "rafamadriz/friendly-snippets" },
 
@@ -221,7 +234,7 @@ return {
 		config = function()
 			local neocodeium = require("neocodeium")
 			neocodeium.setup()
-			vim.keymap.set("i", "<A-cr>", neocodeium.accept)
+			vim.keymap.set("i", "<A-y>", neocodeium.accept)
 		end,
 	},
 
@@ -243,6 +256,38 @@ return {
 		config = function()
 			require("options.code_runner")
 		end,
-    cmd = { "RunCode" },
+		cmd = { "RunCode" },
+	},
+	{
+		dir = "~/.config/nvim/lua/gitroot", -- wherever you put it
+		config = function()
+			require("gitroot").setup()
+		end,
+	},
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*",
+		event = { "BufReadPre", "BufNewFile" },
+		-- lazy = true,
+		-- ft = "markdown",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("options.obsidian")
+		end,
+	},
+	{
+		dir = "~/.config/nvim/lua/todo-obsidian",
+		lazy = false, -- load on startup
+		priority = 100, -- load early if needed
+		opts = {
+			file_paths = {
+				main_todo = vim.fn.expand("~/.local/share/obsidian_ChK/journaling/todos/TODO.md"),
+			},
+		},
+		config = function(_,opts)
+			require("todo-obsidian").setup(opts)
+		end,
 	},
 }
