@@ -22,6 +22,16 @@ return {
 		opts = {
 			keymap = {
 				preset = "default",
+				["<C-k>"] = {
+					function(cmp)
+						cmp.scroll_documentation_up(4)
+					end,
+				},
+				["<C-j>"] = {
+					function(cmp)
+						cmp.scroll_documentation_down(4)
+					end,
+				},
 			},
 			completion = { documentation = { auto_show = false } },
 			sources = {
@@ -267,7 +277,7 @@ return {
 	{
 		"epwalsh/obsidian.nvim",
 		version = "*",
-		event = { "BufReadPre", "BufNewFile" },
+		event = "VeryLazy",
 		-- lazy = true,
 		-- ft = "markdown",
 		dependencies = {

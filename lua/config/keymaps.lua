@@ -103,7 +103,7 @@ end, { desc = "general format file" })
 -- obsidian
 map("n", "<A-s>", "<cmd> ObsidianSearch <CR>")
 map("n", "<A-i>", "<cmd> ObsidianToday <CR>")
-map("n", "<A-t>", "<cmd> ObsidianTemplate <CR>")
+map("n", "<A-T>", "<cmd> ObsidianTemplate <CR>")
 map("n", "<A-o>", "<cmd> ObsidianOpen <CR>")
 map("n", "<A-p>", "<cmd> ObsidianTOC <CR>")
 map("n", "<A-b>", "<cmd> ObsidianBacklinks <CR>")

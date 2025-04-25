@@ -6,6 +6,6 @@ require("conform").setup({
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 		cpp = { "clang-format" },
-		python = { "autoflake" },
+		python = { "autopep8" },
 	},
 })
