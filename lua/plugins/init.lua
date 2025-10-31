@@ -88,11 +88,11 @@ return {
 			rocks = { "magick" },
 		},
 	},
-	{
-		"3rd/image.nvim",
-		dependencies = { "luarocks.nvim" },
-		opts = {},
-	},
+	-- {
+	-- 	"3rd/image.nvim",
+	-- 	dependencies = { "luarocks.nvim" },
+	-- 	opts = {},
+	-- },
 	{ "krady21/compiler-explorer.nvim", cmd = "CECompile" },
 	{ "cljoly/telescope-repo.nvim" },
 	{
@@ -300,4 +300,10 @@ return {
 			require("todo-obsidian").setup(opts)
 		end,
 	},
+	-- {
+	-- 	dir = vim.fn.stdpath("config") .. "/lua/plugins/pdf_open",
+	-- 	config = function()
+	-- 		-- require("plugins.pdf_open")
+	-- 	end,
+	-- },
 }
