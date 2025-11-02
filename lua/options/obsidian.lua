@@ -2,7 +2,7 @@ require("obsidian").setup({
 	workspaces = {
 		{
 			name = "personal",
-			path = "~/.local/share/obsidian_ChK",
+			path = "/mnt/ssd/GoodStuffs/obsidian_chk/",
 		},
 	},
 	templates = {
