@@ -65,16 +65,6 @@ return {
 		"MeanderingProgrammer/render-markdown.nvim",
 		ft = { "markdown", "codecompanion" },
 	},
-	{
-		"olimorris/codecompanion.nvim",
-		config = function()
-			require("options.codecompanion")
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
 	-- {
 	-- 	"ahmedkhalf/project.nvim",
 	-- 	config = function()
@@ -250,9 +240,6 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
-		config = function()
-			require("options.treesitter")
-		end,
 	},
 	{
 		"windwp/nvim-ts-autotag",
