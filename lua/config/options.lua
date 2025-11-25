@@ -6,6 +6,9 @@ vim.o.relativenumber = true
 vim.o.number = true
 vim.o.conceallevel = 1
 
+vim.o.ignorecase = true      -- Case-insensitive search
+vim.o.smartcase = true       -- If uppercase in search, switch to sensitive
+
 vim.opt.undofile = true  -- Enable persistent undo
 vim.opt.expandtab = true      -- Convert tabs to spaces
 vim.opt.shiftwidth = 2        -- Number of spaces per indentation level
