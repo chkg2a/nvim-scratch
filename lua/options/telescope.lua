@@ -12,7 +12,7 @@ require("telescope").setup({
 					"--no-ignore-vcs",
 				},
 				search_dirs = {
-					"~/projects",
+					"~/GoodStuffs/projects",
 					"~/.local/share/clone",
 					"~/.local/share/obsidian_ChK",
 					"~/.config/",

@@ -24,6 +24,13 @@ require("code_runner").setup({
 			"java $fileNameWithoutExt &&",
 			"rm *.class &&",
 		},
+		l = {
+			"cd '$dir' &&",
+			"flex $fileName ",
+			"gcc lex.yy.c -o $fileNameWithoutExt &&",
+			"/usr/bin/time -o memUsage.txt -f%M ./out.$fileNameWithoutExt &&",
+			"rm ./memUsage.txt",
+		},
 		cpp = {
 			"cd '$dir' &&",
 			"g++ $fileName -o out.$fileNameWithoutExt -Ofast -march=native &&",

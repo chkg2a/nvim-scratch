@@ -85,10 +85,10 @@ map("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
 	desc = "Search current word",
 })
 
+
 -- AI
 map("n", "<leader>ai", "<cmd>CodeCompanionChat<cr>", { desc = "Code Comp" })
 map("v", "<leader>ai", "<cmd>CodeCompanionActions<cr>", { desc = "Code Comp" })
-map("n", "<leader>n", "<cmd>NeoCodeium toggle<cr>", { desc = "Code Comp" })
 
 -- Harpoon
 map("n", "<A-m>", "<cmd>lua require(\"harpoon.ui\").toggle_quick_menu()<cr>", { desc = "open menu" })
@@ -108,4 +108,5 @@ map("n", "<A-o>", "<cmd> ObsidianOpen <CR>")
 map("n", "<A-p>", "<cmd> ObsidianTOC <CR>")
 map("n", "<A-b>", "<cmd> ObsidianBacklinks <CR>")
 map("n", "<A-n>", "<cmd> ObsidianNew <CR>")
+
 map("n", "<A-t>", "<cmd> OpenTodo <CR>")
