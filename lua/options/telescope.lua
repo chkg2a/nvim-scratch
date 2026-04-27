@@ -4,6 +4,9 @@ require("telescope").setup({
 			"^%.",
 			"assets/",
 		},
+    preview = {
+      treesitter = false,
+    },
 	},
 	extensions = {
 		repo = {

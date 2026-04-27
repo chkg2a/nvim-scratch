@@ -17,11 +17,11 @@ map({ "n", "t" }, "<A-k>", "<C-w>k", { desc = "window down panel" })
 map({ "n", "t" }, "<A-S-h>", "<cmd>2winc > <cr>", { desc = "increase window left panel" })
 map({ "n", "t" }, "<A-S-l>", "<cmd>2winc < <cr>", { desc = "increase window right panel" })
 map("n", "<Esc>", function()
-    if vim.v.hlsearch == 1 then
-        vim.cmd("noh")
-    else
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
-    end
+  if vim.v.hlsearch == 1 then
+    vim.cmd("noh")
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+  end
 end, { silent = true, desc = "Smart clear search highlights" })
 
 -- Git Stuffs
@@ -79,10 +79,10 @@ end
 map("n", "<leader>ro", [[:lua ReplaceChar()<CR>]], { noremap = true, silent = false })
 
 map("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-	desc = "Search current word",
+  desc = "Search current word",
 })
 map("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-	desc = "Search current word",
+  desc = "Search current word",
 })
 
 
@@ -97,7 +97,7 @@ map("n", "<A-r>", "<cmd>lua require(\"harpoon.mark\").add_file()<cr>", { desc = 
 
 -- conform
 map("n", "<leader>fm", function()
-	require("conform").format({ lsp_fallback = true })
+  require("conform").format({ lsp_fallback = true })
 end, { desc = "general format file" })
 
 -- obsidian

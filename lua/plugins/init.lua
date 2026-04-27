@@ -90,11 +90,11 @@ return {
       rocks = { "magick" },
     },
   },
-  -- {
-  -- 	"3rd/image.nvim",
-  -- 	dependencies = { "luarocks.nvim" },
-  -- 	opts = {},
-  -- },
+  {
+    "3rd/image.nvim",
+    dependencies = { "luarocks.nvim" },
+    opts = {},
+  },
   { "krady21/compiler-explorer.nvim", cmd = "CECompile" },
   { "cljoly/telescope-repo.nvim" },
   {
@@ -103,7 +103,7 @@ return {
     config = function()
       require("options.cord")
     end,
-    event = "BufReadPre"
+    event = "VeryLazy"
   },
   {
     "NeogitOrg/neogit",
@@ -179,7 +179,8 @@ return {
   {
     "nvim-focus/focus.nvim",
     version = false,
-    opts = {},
+    opts = {
+    },
   },
   {
     "mbbill/undotree",
@@ -292,7 +293,7 @@ return {
     priority = 100, -- load early if needed
     opts = {
       file_paths = {
-        main_todo = vim.fn.expand("~/.local/share/obsidian_ChK/journaling/todos/TODO.md"),
+        main_todo = vim.fn.expand("~/GoodStuffs/obsidian_ChK/journaling/todos/TODO.md"),
       },
     },
     config = function(_, opts)

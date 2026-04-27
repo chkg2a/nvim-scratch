@@ -18,3 +18,4 @@ vim.o.scrolloff = 5  -- Adjust this number as needed
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shada = "!,'1000,<50,s10,h"
+vim.opt.wrap = false
