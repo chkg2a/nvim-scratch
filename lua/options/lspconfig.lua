@@ -16,9 +16,6 @@ mason_lspconfig.setup({
     "pyright",
     "clangd",
     "jdtls",
-    "astro",
-    "gopls",
-    "sqls",
   },
 
   -- NEW IN V2 – automatically enables servers using vim.lsp.enable()

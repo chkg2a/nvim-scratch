@@ -19,3 +19,12 @@ vim.o.scrolloff = 5  -- Adjust this number as needed
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shada = "!,'1000,<50,s10,h"
 vim.opt.wrap = false
+
+vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/luarocks.nvim")
+
+package.path = package.path
+  .. ";" .. vim.fn.stdpath("data") .. "/lazy/luarocks.nvim/.rocks/share/lua/5.1/?.lua"
+  .. ";" .. vim.fn.stdpath("data") .. "/lazy/luarocks.nvim/.rocks/share/lua/5.1/?/init.lua"
+
+package.cpath = package.cpath
+  .. ";" .. vim.fn.stdpath("data") .. "/lazy/luarocks.nvim/.rocks/lib/lua/5.1/?.so"
