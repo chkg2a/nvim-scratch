@@ -12,7 +12,6 @@
   "fzf-lua": { "branch": "main", "commit": "2e29d5f233defe3c5587df0e4dd29af2bd95a5a7" },
   "git-blame.nvim": { "branch": "main", "commit": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7" },
   "harpoon": { "branch": "master", "commit": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3" },
-  "hererocks": { "branch": "master", "commit": "3db37265c3839cbd4d27fc73f92fa7b58bc3a76f" },
   "hlchunk.nvim": { "branch": "main", "commit": "3bc2bd7aef28fbed6643534a0fdd0f19966544bc" },
   "image.nvim": { "branch": "master", "commit": "da2be65c153ba15a14a342b05591652a6df70d58" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },

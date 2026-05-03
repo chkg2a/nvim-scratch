@@ -205,7 +205,6 @@ return {
       require("options.lspconfig")
     end,
   },
-
   {
     "startup-nvim/startup.nvim",
     dependencies = {
@@ -237,10 +236,10 @@ return {
     end,
     cmd = "Spectre",
   },
-  {
-    "wakatime/vim-wakatime",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "wakatime/vim-wakatime",
+  --   event = "VeryLazy",
+  -- },
   {
     "monkoose/neocodeium",
     event = "VeryLazy",

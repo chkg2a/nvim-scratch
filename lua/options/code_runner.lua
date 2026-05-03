@@ -29,7 +29,7 @@ require("code_runner").setup({
 			"flex $fileName &&",
 			"gcc lex.yy.c -o $fileNameWithoutExt &&",
 			"./$fileNameWithoutExt &&",
-			"rm ./lex.yy.cc &&",
+			"rm ./lex.yy.c &&",
 			"rm ./$fileNameWithoutExt",
 		},
 		cpp = {
