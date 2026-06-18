@@ -78,6 +78,15 @@ end
 
 map("n", "<leader>ro", [[:lua ReplaceChar()<CR>]], { noremap = true, silent = false })
 
+vim.keymap.set("n", "<leader>rv", function()
+  local text = vim.fn.input("Remove after: ")
+  if text == "" then
+    return
+  end
+
+  vim.cmd(string.format("%%s@\\s*%s.*$@@g", vim.pesc(text)))
+end)
+
 map("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
   desc = "Search current word",
 })

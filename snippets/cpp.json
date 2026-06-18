@@ -2,8 +2,10 @@
   "algo": {
     "prefix": "algo",
     "body": [
-      "#include <iostream>",
-      "#include <bits/stdc++.h>",
+      "#include <cstdio>",
+      "#include <unordered_map>",
+      "#include <vector>",
+      "#include <chkg2a/fn_utility.h>",
       "using namespace std;",
       "",
       "$1",

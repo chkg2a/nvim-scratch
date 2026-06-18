@@ -13,7 +13,6 @@ mason_lspconfig.setup({
     "cssls",
     "ts_ls",
     "tailwindcss",
-    "pyright",
     "clangd",
     "jdtls",
   },
@@ -88,7 +87,7 @@ vim.lsp.config("tailwindcss", {
 })
 
 -- Python
-vim.lsp.config("pyright", {
+vim.lsp.config("basedpyright", {
   capabilities = capabilities,
   on_attach = on_attach,
 })
