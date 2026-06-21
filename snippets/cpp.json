@@ -1,6 +1,6 @@
 {
-  "algo": {
-    "prefix": "algo",
+  "leet": {
+    "prefix": "leet",
     "body": [
       "#include <cstdio>",
       "#include <unordered_map>",
@@ -12,6 +12,24 @@
       "",
       "int main(){",
       "\tSolution sol;",
+      "\treturn 0;",
+      "}"
+    ]
+  },
+  "codechef": {
+    "prefix": "chef",
+    "body": [
+      "#include <iostream>",
+      "using namespace std;",
+      "",
+      "int main(){",
+      "\tint t;",
+      "\tcin >> t;",
+      "\t",
+      "\twhile(t--){",
+      "\t\t$1",
+      "\t}",
+      "\t",
       "\treturn 0;",
       "}"
     ]
